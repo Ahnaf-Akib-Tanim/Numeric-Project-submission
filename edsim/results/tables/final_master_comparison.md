@@ -1,0 +1,12 @@
+### Master comparison of all scheduling policies over 100 common-random-number replications
+
+| policy | origin | mean_wait_min | sd_min | ci95 | wait_L3_min | wait_L4_min | holding_cost | SL3_pct | SL4_pct | physician_util_pct | meets_sla |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| IFP | base paper | 52.43 | 14.10 | [49.63, 55.22] | 50.88 | 52.94 | 0.7550 | 100.00 | 100.00 | 86.36 | yes |
+| ALT | base paper | 42.39 | 10.70 | [40.26, 44.51] | 6.05 | 54.61 | 0.3913 | 99.96 | 87.37 | 86.34 | NO |
+| SBP | base paper (k=13.1, 2.1) | 44.08 | 11.91 | [41.72, 46.44] | 12.35 | 54.74 | 0.4450 | 99.99 | 89.40 | 86.34 | NO |
+| SBP* | ours, WP3 Nelder-Mead (k=2.31, 8.37) | 44.18 | 11.95 | [41.81, 46.55] | 14.14 | 54.27 | 0.4570 | 95.42 | 95.64 | 86.34 | yes |
+| WSEPT | ours, WP2 c-mu rule | 42.32 | 10.63 | [40.21, 44.43] | 3.76 | 55.30 | 0.3763 | 100.00 | 86.87 | 86.34 | NO |
+| GCMU | ours, WP2 generalised c-mu | 44.05 | 11.30 | [41.81, 46.29] | 14.59 | 53.94 | 0.4588 | 100.00 | 90.99 | 86.35 | NO |
+
+<sub>produced by: scripts/run_08_final_comparison.py &middot; command    : python scripts/run_08_final_comparison.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:46:21 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false}</sub>

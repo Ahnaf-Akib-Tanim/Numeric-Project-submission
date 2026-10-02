@@ -1,0 +1,10 @@
+### Diagnostic equipment utilisation -- identical across policies, confirming physicians are the bottleneck
+
+| equipment | exams_per_week | utilisation_pct | paper_utilisation_pct | mean_queue_delay_min |
+|---|---|---|---|---|
+| LABORATORY | 1248 | 14.73 | 14.36 | 0.074 |
+| XRAY | 394 | 15.59 | 15.20 | 0.427 |
+| CT | 748 | 18.18 | 17.64 | 0.287 |
+| ULTRASOUND | 297 | 19.41 | 19.03 | 0.977 |
+
+<sub>produced by: scripts/run_08_final_comparison.py &middot; command    : python scripts/run_08_final_comparison.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:46:21 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false}</sub>

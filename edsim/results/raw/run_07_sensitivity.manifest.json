@@ -1,0 +1,359 @@
+{
+ "script": "run_07_sensitivity",
+ "description": "Reproduction of the base paper's sensitivity analysis (arrival rate, physician staffing, service-time distribution), extended to include the two c-mu policies contributed by this project.",
+ "command": "python scripts/run_07_sensitivity.py --reps 100 --seed 20250402 --workers 14",
+ "args": {
+  "reps": 100,
+  "seed": 20250402,
+  "workers": 14,
+  "quick": false,
+  "no_figures": false,
+  "arrival_span": 15.0,
+  "arrival_step": 3.0,
+  "skip_arrival": false,
+  "skip_staffing": false,
+  "skip_distribution": false
+ },
+ "timestamp": "2026-09-24 10:46:00",
+ "elapsed_seconds": 145.0,
+ "environment": {
+  "python": "3.11.4",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.2.6",
+  "scipy": "1.14.1",
+  "matplotlib": "3.9.2",
+  "pandas": "2.2.3"
+ },
+ "notes": {
+  "policy_spread_light_load": 1.643,
+  "policy_spread_heavy_load": 53.393,
+  "ranking_truncexp": [
+   "WSEPT",
+   "ALT",
+   "GCMU",
+   "SBP",
+   "IFP"
+  ],
+  "ranking_lognormal": [
+   "ALT",
+   "WSEPT",
+   "GCMU",
+   "SBP",
+   "IFP"
+  ]
+ },
+ "outputs": [
+  {
+   "kind": "table",
+   "name": "sens_arrival_rate",
+   "path": "results/tables/sens_arrival_rate.csv",
+   "caption": "Mean waiting time under each policy as the arrival rate is scaled -15% to +15% (paper Figure 4)"
+  },
+  {
+   "kind": "figure",
+   "name": "sens_arrival_rate",
+   "path": "results/figures/sens_arrival_rate.png",
+   "caption": "Paper Figure 4 reproduced and extended to five policies"
+  },
+  {
+   "kind": "table",
+   "name": "sens_staffing",
+   "path": "results/tables/sens_staffing.csv",
+   "caption": "Mean waiting time under each policy across the paper's seven staffing scenarios (paper Figure 5)"
+  },
+  {
+   "kind": "figure",
+   "name": "sens_staffing",
+   "path": "results/figures/sens_staffing.png",
+   "caption": "Paper Figure 5 reproduced and extended to five policies"
+  },
+  {
+   "kind": "table",
+   "name": "sens_service_distribution",
+   "path": "results/tables/sens_service_distribution.csv",
+   "caption": "Robustness of the results to the service-time distribution (paper Sec 3.4.3)"
+  },
+  {
+   "kind": "figure",
+   "name": "sens_lognormal_bars",
+   "path": "results/figures/sens_lognormal_bars.png",
+   "caption": "Waiting times under the lognormal robustness check"
+  }
+ ],
+ "tables": {
+  "sens_arrival_rate": {
+   "headers": [
+    "arrival_change",
+    "offered_load_rho",
+    "IFP_mean_wait_min",
+    "ALT_mean_wait_min",
+    "SBP_mean_wait_min",
+    "WSEPT_mean_wait_min",
+    "GCMU_mean_wait_min",
+    "unfinished_patients_sbp"
+   ],
+   "rows": [
+    [
+     "-15%",
+     "0.739",
+     "13.30",
+     "11.66",
+     "11.75",
+     "11.71",
+     "11.94",
+     "8"
+    ],
+    [
+     "-12%",
+     "0.766",
+     "17.32",
+     "14.91",
+     "15.01",
+     "14.96",
+     "15.31",
+     "11"
+    ],
+    [
+     "-9%",
+     "0.792",
+     "22.49",
+     "19.01",
+     "19.20",
+     "19.03",
+     "19.57",
+     "12"
+    ],
+    [
+     "-6%",
+     "0.818",
+     "29.33",
+     "24.44",
+     "24.77",
+     "24.39",
+     "25.21",
+     "14"
+    ],
+    [
+     "-3%",
+     "0.844",
+     "38.40",
+     "31.54",
+     "32.38",
+     "31.54",
+     "32.66",
+     "17"
+    ],
+    [
+     "+0%",
+     "0.870",
+     "52.43",
+     "42.39",
+     "44.08",
+     "42.32",
+     "44.05",
+     "20"
+    ],
+    [
+     "+3%",
+     "0.896",
+     "68.87",
+     "55.04",
+     "58.22",
+     "54.88",
+     "57.31",
+     "27"
+    ],
+    [
+     "+6%",
+     "0.922",
+     "87.46",
+     "69.27",
+     "74.45",
+     "69.08",
+     "72.41",
+     "35"
+    ],
+    [
+     "+9%",
+     "0.948",
+     "114.35",
+     "89.79",
+     "98.78",
+     "89.71",
+     "94.08",
+     "44"
+    ],
+    [
+     "+12%",
+     "0.974",
+     "163.02",
+     "127.24",
+     "143.95",
+     "127.15",
+     "133.56",
+     "58"
+    ],
+    [
+     "+15%",
+     "1.000",
+     "240.44",
+     "187.28",
+     "218.63",
+     "187.05",
+     "196.80",
+     "89"
+    ]
+   ]
+  },
+  "sens_staffing": {
+   "headers": [
+    "scenario",
+    "roster",
+    "IFP_mean_wait_min",
+    "ALT_mean_wait_min",
+    "SBP_mean_wait_min",
+    "WSEPT_mean_wait_min",
+    "GCMU_mean_wait_min",
+    "utilisation_pct_sbp",
+    "SL4_pct_sbp"
+   ],
+   "rows": [
+    [
+     "S0",
+     "(5, 5, 3)",
+     "52.43",
+     "42.39",
+     "44.08",
+     "42.32",
+     "44.05",
+     "86.3",
+     "89.40"
+    ],
+    [
+     "S1",
+     "(5, 5, 4)",
+     "42.60",
+     "34.76",
+     "35.14",
+     "34.53",
+     "35.89",
+     "79.5",
+     "93.89"
+    ],
+    [
+     "S2",
+     "(5, 5, 5)",
+     "38.06",
+     "31.00",
+     "31.22",
+     "30.94",
+     "32.10",
+     "73.7",
+     "96.11"
+    ],
+    [
+     "S3",
+     "(5, 6, 5)",
+     "19.48",
+     "16.47",
+     "16.35",
+     "16.37",
+     "16.83",
+     "69.8",
+     "99.62"
+    ],
+    [
+     "S4",
+     "(5, 7, 5)",
+     "13.50",
+     "11.46",
+     "11.45",
+     "11.48",
+     "11.75",
+     "66.1",
+     "99.89"
+    ],
+    [
+     "S5",
+     "(6, 7, 5)",
+     "4.60",
+     "4.30",
+     "4.32",
+     "4.31",
+     "4.33",
+     "62.4",
+     "100.00"
+    ],
+    [
+     "S6",
+     "(7, 7, 5)",
+     "2.40",
+     "2.34",
+     "2.38",
+     "2.38",
+     "2.37",
+     "59.1",
+     "100.00"
+    ]
+   ]
+  },
+  "sens_service_distribution": {
+   "headers": [
+    "policy",
+    "truncexp_mean_wait_min",
+    "lognormal_mean_wait_min",
+    "change_min",
+    "relative_change",
+    "SL4_pct_truncexp",
+    "SL4_pct_lognormal"
+   ],
+   "rows": [
+    [
+     "IFP",
+     "52.43",
+     "75.43",
+     "+23.00",
+     "+43.9%",
+     "100.00",
+     "100.00"
+    ],
+    [
+     "ALT",
+     "42.39",
+     "64.42",
+     "+22.04",
+     "+52.0%",
+     "87.37",
+     "76.65"
+    ],
+    [
+     "SBP",
+     "44.08",
+     "67.70",
+     "+23.62",
+     "+53.6%",
+     "89.40",
+     "80.57"
+    ],
+    [
+     "WSEPT",
+     "42.32",
+     "64.46",
+     "+22.14",
+     "+52.3%",
+     "86.87",
+     "75.69"
+    ],
+    [
+     "GCMU",
+     "44.05",
+     "66.42",
+     "+22.37",
+     "+50.8%",
+     "90.99",
+     "82.48"
+    ]
+   ]
+  }
+ }
+}

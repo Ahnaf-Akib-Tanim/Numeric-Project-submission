@@ -1,0 +1,21 @@
+### Every pairwise paired t-test on the mean waiting time, Bonferroni-corrected across the whole family
+
+| comparison | mean_diff_min | ci95_of_diff | t_stat | p_value | significant_bonferroni | cohens_d | interpretation |
+|---|---|---|---|---|---|---|---|
+| IFP vs ALT | +10.042 | [+8.981, +11.102] | 28.471 | 1.774e-49 | Yes | +2.847 | Huge effect |
+| IFP vs SBP | +8.346 | [+7.601, +9.090] | 33.734 | 4.294e-56 | Yes | +3.373 | Huge effect |
+| IFP vs SBP* | +8.246 | [+7.520, +8.973] | 34.140 | 1.442e-56 | Yes | +3.414 | Huge effect |
+| IFP vs WSEPT | +10.108 | [+9.017, +11.199] | 27.865 | 1.180e-48 | Yes | +2.786 | Huge effect |
+| IFP vs GCMU | +8.378 | [+7.501, +9.255] | 28.731 | 7.928e-50 | Yes | +2.873 | Huge effect |
+| ALT vs SBP | -1.696 | [-2.136, -1.255] | -11.577 | 4.145e-20 | Yes | -1.158 | Large effect |
+| ALT vs SBP* | -1.795 | [-2.247, -1.344] | -11.961 | 6.203e-21 | Yes | -1.196 | Large effect |
+| ALT vs WSEPT | +0.066 | [-0.032, +0.165] | 2.025 | 0.04553 | No | +0.203 | Small effect |
+| ALT vs GCMU | -1.664 | [-1.868, -1.460] | -24.507 | 7.946e-44 | Yes | -2.451 | Very large effect |
+| SBP vs SBP* | -0.099 | [-0.155, -0.044] | -5.372 | 5.168e-07 | Yes | -0.537 | Medium effect |
+| SBP vs WSEPT | +1.762 | [+1.313, +2.212] | 11.794 | 1.418e-20 | Yes | +1.179 | Large effect |
+| SBP vs GCMU | +0.032 | [-0.273, +0.337] | 0.315 | 0.75312 | No | +0.032 | Negligible |
+| SBP* vs WSEPT | +1.861 | [+1.400, +2.323] | 12.127 | 2.743e-21 | Yes | +1.213 | Very large effect |
+| SBP* vs GCMU | +0.131 | [-0.182, +0.445] | 1.260 | 0.21079 | No | +0.126 | Negligible |
+| WSEPT vs GCMU | -1.730 | [-1.962, -1.498] | -22.458 | 1.218e-40 | Yes | -2.246 | Very large effect |
+
+<sub>produced by: scripts/run_08_final_comparison.py &middot; command    : python scripts/run_08_final_comparison.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:46:21 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false}</sub>

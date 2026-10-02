@@ -1,0 +1,11 @@
+### Robustness of the results to the service-time distribution (paper Sec 3.4.3)
+
+| policy | truncexp_mean_wait_min | lognormal_mean_wait_min | change_min | relative_change | SL4_pct_truncexp | SL4_pct_lognormal |
+|---|---|---|---|---|---|---|
+| IFP | 52.43 | 75.43 | +23.00 | +43.9% | 100.00 | 100.00 |
+| ALT | 42.39 | 64.42 | +22.04 | +52.0% | 87.37 | 76.65 |
+| SBP | 44.08 | 67.70 | +23.62 | +53.6% | 89.40 | 80.57 |
+| WSEPT | 42.32 | 64.46 | +22.14 | +52.3% | 86.87 | 75.69 |
+| GCMU | 44.05 | 66.42 | +22.37 | +50.8% | 90.99 | 82.48 |
+
+<sub>produced by: scripts/run_07_sensitivity.py &middot; command    : python scripts/run_07_sensitivity.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:46:00 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false, "arrival_span": 15.0, "arrival_step": 3.0, "skip_arrival": false, "skip_staffing": false, "skip_distribution": false}</sub>

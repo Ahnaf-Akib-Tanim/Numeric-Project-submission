@@ -1,0 +1,440 @@
+{
+ "script": "run_08_final_comparison",
+ "description": "Consolidated comparison of the base paper's three scheduling heuristics against our re-tuned Slack-Based Policy and our two c-mu policies, in the paper's own KPI vocabulary, under Common Random Numbers.",
+ "command": "python scripts/run_08_final_comparison.py --reps 100 --seed 20250402 --workers 14",
+ "args": {
+  "reps": 100,
+  "seed": 20250402,
+  "workers": 14,
+  "quick": false,
+  "no_figures": false
+ },
+ "timestamp": "2026-09-24 10:46:24",
+ "elapsed_seconds": 13.62,
+ "environment": {
+  "python": "3.11.4",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.2.6",
+  "scipy": "1.14.1",
+  "matplotlib": "3.9.2",
+  "pandas": "2.2.3"
+ },
+ "notes": {
+  "lens1_best_unweighted_wait": "WSEPT",
+  "lens2_best_holding_cost": "WSEPT",
+  "lens3_best_sla_feasible": "SBP*",
+  "sla_feasible_policies": [
+   "IFP",
+   "SBP*"
+  ]
+ },
+ "outputs": [
+  {
+   "kind": "table",
+   "name": "final_master_comparison",
+   "path": "results/tables/final_master_comparison.csv",
+   "caption": "Master comparison of all scheduling policies over 100 common-random-number replications"
+  },
+  {
+   "kind": "table",
+   "name": "final_improvement_vs_baseline",
+   "path": "results/tables/final_improvement_vs_baseline.csv",
+   "caption": "Every policy's improvement over the Initial-First baseline, the paper's own reference point"
+  },
+  {
+   "kind": "table",
+   "name": "final_significance_matrix",
+   "path": "results/tables/final_significance_matrix.csv",
+   "caption": "Every pairwise paired t-test on the mean waiting time, Bonferroni-corrected across the whole family"
+  },
+  {
+   "kind": "table",
+   "name": "final_equipment",
+   "path": "results/tables/final_equipment.csv",
+   "caption": "Diagnostic equipment utilisation -- identical across policies, confirming physicians are the bottleneck"
+  },
+  {
+   "kind": "raw",
+   "name": "final_replications",
+   "path": "results/raw/final_replications.csv",
+   "caption": ""
+  },
+  {
+   "kind": "figure",
+   "name": "final_boxplot",
+   "path": "results/figures/final_boxplot.png",
+   "caption": "Waiting-time distributions for every policy considered"
+  },
+  {
+   "kind": "figure",
+   "name": "final_mean_wait",
+   "path": "results/figures/final_mean_wait.png",
+   "caption": "Mean waiting time, all policies"
+  },
+  {
+   "kind": "figure",
+   "name": "final_tradeoff",
+   "path": "results/figures/final_tradeoff.png",
+   "caption": "Mean waiting time against Level IV service level; only policies above the dashed line are adoptable"
+  }
+ ],
+ "tables": {
+  "final_master_comparison": {
+   "headers": [
+    "policy",
+    "origin",
+    "mean_wait_min",
+    "sd_min",
+    "ci95",
+    "wait_L3_min",
+    "wait_L4_min",
+    "holding_cost",
+    "SL3_pct",
+    "SL4_pct",
+    "physician_util_pct",
+    "meets_sla"
+   ],
+   "rows": [
+    [
+     "IFP",
+     "base paper",
+     "52.43",
+     "14.10",
+     "[49.63, 55.22]",
+     "50.88",
+     "52.94",
+     "0.7550",
+     "100.00",
+     "100.00",
+     "86.36",
+     "yes"
+    ],
+    [
+     "ALT",
+     "base paper",
+     "42.39",
+     "10.70",
+     "[40.26, 44.51]",
+     "6.05",
+     "54.61",
+     "0.3913",
+     "99.96",
+     "87.37",
+     "86.34",
+     "NO"
+    ],
+    [
+     "SBP",
+     "base paper (k=13.1, 2.1)",
+     "44.08",
+     "11.91",
+     "[41.72, 46.44]",
+     "12.35",
+     "54.74",
+     "0.4450",
+     "99.99",
+     "89.40",
+     "86.34",
+     "NO"
+    ],
+    [
+     "SBP*",
+     "ours, WP3 Nelder-Mead (k=2.31, 8.37)",
+     "44.18",
+     "11.95",
+     "[41.81, 46.55]",
+     "14.14",
+     "54.27",
+     "0.4570",
+     "95.42",
+     "95.64",
+     "86.34",
+     "yes"
+    ],
+    [
+     "WSEPT",
+     "ours, WP2 c-mu rule",
+     "42.32",
+     "10.63",
+     "[40.21, 44.43]",
+     "3.76",
+     "55.30",
+     "0.3763",
+     "100.00",
+     "86.87",
+     "86.34",
+     "NO"
+    ],
+    [
+     "GCMU",
+     "ours, WP2 generalised c-mu",
+     "44.05",
+     "11.30",
+     "[41.81, 46.29]",
+     "14.59",
+     "53.94",
+     "0.4588",
+     "100.00",
+     "90.99",
+     "86.35",
+     "NO"
+    ]
+   ]
+  },
+  "final_improvement_vs_baseline": {
+   "headers": [
+    "policy",
+    "mean_wait_min",
+    "delta_vs_ifp_min",
+    "delta_vs_ifp_pct",
+    "holding_cost_vs_ifp_pct",
+    "meets_sla"
+   ],
+   "rows": [
+    [
+     "ALT",
+     "42.39",
+     "-10.04",
+     "-19.15%",
+     "-48.16%",
+     "NO"
+    ],
+    [
+     "SBP",
+     "44.08",
+     "-8.35",
+     "-15.92%",
+     "-41.06%",
+     "NO"
+    ],
+    [
+     "SBP*",
+     "44.18",
+     "-8.25",
+     "-15.73%",
+     "-39.46%",
+     "yes"
+    ],
+    [
+     "WSEPT",
+     "42.32",
+     "-10.11",
+     "-19.28%",
+     "-50.15%",
+     "NO"
+    ],
+    [
+     "GCMU",
+     "44.05",
+     "-8.38",
+     "-15.98%",
+     "-39.23%",
+     "NO"
+    ]
+   ]
+  },
+  "final_significance_matrix": {
+   "headers": [
+    "comparison",
+    "mean_diff_min",
+    "ci95_of_diff",
+    "t_stat",
+    "p_value",
+    "significant_bonferroni",
+    "cohens_d",
+    "interpretation"
+   ],
+   "rows": [
+    [
+     "IFP vs ALT",
+     "+10.042",
+     "[+8.981, +11.102]",
+     "28.471",
+     "1.774e-49",
+     "Yes",
+     "+2.847",
+     "Huge effect"
+    ],
+    [
+     "IFP vs SBP",
+     "+8.346",
+     "[+7.601, +9.090]",
+     "33.734",
+     "4.294e-56",
+     "Yes",
+     "+3.373",
+     "Huge effect"
+    ],
+    [
+     "IFP vs SBP*",
+     "+8.246",
+     "[+7.520, +8.973]",
+     "34.140",
+     "1.442e-56",
+     "Yes",
+     "+3.414",
+     "Huge effect"
+    ],
+    [
+     "IFP vs WSEPT",
+     "+10.108",
+     "[+9.017, +11.199]",
+     "27.865",
+     "1.180e-48",
+     "Yes",
+     "+2.786",
+     "Huge effect"
+    ],
+    [
+     "IFP vs GCMU",
+     "+8.378",
+     "[+7.501, +9.255]",
+     "28.731",
+     "7.928e-50",
+     "Yes",
+     "+2.873",
+     "Huge effect"
+    ],
+    [
+     "ALT vs SBP",
+     "-1.696",
+     "[-2.136, -1.255]",
+     "-11.577",
+     "4.145e-20",
+     "Yes",
+     "-1.158",
+     "Large effect"
+    ],
+    [
+     "ALT vs SBP*",
+     "-1.795",
+     "[-2.247, -1.344]",
+     "-11.961",
+     "6.203e-21",
+     "Yes",
+     "-1.196",
+     "Large effect"
+    ],
+    [
+     "ALT vs WSEPT",
+     "+0.066",
+     "[-0.032, +0.165]",
+     "2.025",
+     "0.04553",
+     "No",
+     "+0.203",
+     "Small effect"
+    ],
+    [
+     "ALT vs GCMU",
+     "-1.664",
+     "[-1.868, -1.460]",
+     "-24.507",
+     "7.946e-44",
+     "Yes",
+     "-2.451",
+     "Very large effect"
+    ],
+    [
+     "SBP vs SBP*",
+     "-0.099",
+     "[-0.155, -0.044]",
+     "-5.372",
+     "5.168e-07",
+     "Yes",
+     "-0.537",
+     "Medium effect"
+    ],
+    [
+     "SBP vs WSEPT",
+     "+1.762",
+     "[+1.313, +2.212]",
+     "11.794",
+     "1.418e-20",
+     "Yes",
+     "+1.179",
+     "Large effect"
+    ],
+    [
+     "SBP vs GCMU",
+     "+0.032",
+     "[-0.273, +0.337]",
+     "0.315",
+     "0.75312",
+     "No",
+     "+0.032",
+     "Negligible"
+    ],
+    [
+     "SBP* vs WSEPT",
+     "+1.861",
+     "[+1.400, +2.323]",
+     "12.127",
+     "2.743e-21",
+     "Yes",
+     "+1.213",
+     "Very large effect"
+    ],
+    [
+     "SBP* vs GCMU",
+     "+0.131",
+     "[-0.182, +0.445]",
+     "1.260",
+     "0.21079",
+     "No",
+     "+0.126",
+     "Negligible"
+    ],
+    [
+     "WSEPT vs GCMU",
+     "-1.730",
+     "[-1.962, -1.498]",
+     "-22.458",
+     "1.218e-40",
+     "Yes",
+     "-2.246",
+     "Very large effect"
+    ]
+   ]
+  },
+  "final_equipment": {
+   "headers": [
+    "equipment",
+    "exams_per_week",
+    "utilisation_pct",
+    "paper_utilisation_pct",
+    "mean_queue_delay_min"
+   ],
+   "rows": [
+    [
+     "LABORATORY",
+     "1248",
+     "14.73",
+     "14.36",
+     "0.074"
+    ],
+    [
+     "XRAY",
+     "394",
+     "15.59",
+     "15.20",
+     "0.427"
+    ],
+    [
+     "CT",
+     "748",
+     "18.18",
+     "17.64",
+     "0.287"
+    ],
+    [
+     "ULTRASOUND",
+     "297",
+     "19.41",
+     "19.03",
+     "0.977"
+    ]
+   ]
+  }
+ }
+}

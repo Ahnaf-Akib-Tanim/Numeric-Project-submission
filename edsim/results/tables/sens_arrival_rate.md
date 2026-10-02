@@ -1,0 +1,17 @@
+### Mean waiting time under each policy as the arrival rate is scaled -15% to +15% (paper Figure 4)
+
+| arrival_change | offered_load_rho | IFP_mean_wait_min | ALT_mean_wait_min | SBP_mean_wait_min | WSEPT_mean_wait_min | GCMU_mean_wait_min | unfinished_patients_sbp |
+|---|---|---|---|---|---|---|---|
+| -15% | 0.739 | 13.30 | 11.66 | 11.75 | 11.71 | 11.94 | 8 |
+| -12% | 0.766 | 17.32 | 14.91 | 15.01 | 14.96 | 15.31 | 11 |
+| -9% | 0.792 | 22.49 | 19.01 | 19.20 | 19.03 | 19.57 | 12 |
+| -6% | 0.818 | 29.33 | 24.44 | 24.77 | 24.39 | 25.21 | 14 |
+| -3% | 0.844 | 38.40 | 31.54 | 32.38 | 31.54 | 32.66 | 17 |
+| +0% | 0.870 | 52.43 | 42.39 | 44.08 | 42.32 | 44.05 | 20 |
+| +3% | 0.896 | 68.87 | 55.04 | 58.22 | 54.88 | 57.31 | 27 |
+| +6% | 0.922 | 87.46 | 69.27 | 74.45 | 69.08 | 72.41 | 35 |
+| +9% | 0.948 | 114.35 | 89.79 | 98.78 | 89.71 | 94.08 | 44 |
+| +12% | 0.974 | 163.02 | 127.24 | 143.95 | 127.15 | 133.56 | 58 |
+| +15% | 1.000 | 240.44 | 187.28 | 218.63 | 187.05 | 196.80 | 89 |
+
+<sub>produced by: scripts/run_07_sensitivity.py &middot; command    : python scripts/run_07_sensitivity.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:44:57 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false, "arrival_span": 15.0, "arrival_step": 3.0, "skip_arrival": false, "skip_staffing": false, "skip_distribution": false}</sub>

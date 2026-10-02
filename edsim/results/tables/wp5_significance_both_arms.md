@@ -1,0 +1,16 @@
+### The paper's statistical analysis repeated with and without CRN
+
+| comparison | t_independent | p_independent | significant_independent | cohens_d_independent | t_crn | p_crn | significant_crn | cohens_d_crn |
+|---|---|---|---|---|---|---|---|---|
+| IFP vs ALT | 4.929 | 3.326e-06 | Yes | 0.493 | 28.471 | 1.774e-49 | Yes | 2.847 |
+| IFP vs SBP | 2.908 | 0.00449 | Yes | 0.291 | 33.734 | 4.294e-56 | Yes | 3.373 |
+| IFP vs WSEPT | 4.639 | 1.071e-05 | Yes | 0.464 | 27.865 | 1.180e-48 | Yes | 2.786 |
+| IFP vs GCMU | 4.640 | 1.071e-05 | Yes | 0.464 | 28.731 | 7.928e-50 | Yes | 2.873 |
+| ALT vs SBP | -1.596 | 0.11371 | No | -0.160 | -11.577 | 4.145e-20 | Yes | -1.158 |
+| ALT vs WSEPT | 0.158 | 0.87456 | No | 0.016 | 2.025 | 0.04553 | No | 0.203 |
+| ALT vs GCMU | -0.558 | 0.57777 | No | -0.056 | -24.507 | 7.946e-44 | Yes | -2.451 |
+| SBP vs WSEPT | 1.841 | 0.06867 | No | 0.184 | 11.794 | 1.418e-20 | Yes | 1.179 |
+| SBP vs GCMU | 0.936 | 0.35134 | No | 0.094 | 0.315 | 0.75312 | No | 0.032 |
+| WSEPT vs GCMU | -0.719 | 0.47400 | No | -0.072 | -22.458 | 1.218e-40 | Yes | -2.246 |
+
+<sub>produced by: scripts/run_06_crn_variance.py &middot; command    : python scripts/run_06_crn_variance.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:43:29 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false, "target_halfwidth": 0.5}</sub>

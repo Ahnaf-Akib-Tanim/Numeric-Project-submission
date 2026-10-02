@@ -1,0 +1,16 @@
+# produced by: scripts/run_06_crn_variance.py
+# command    : python scripts/run_06_crn_variance.py --reps 100 --seed 20250402 --workers 14
+# timestamp  : 2026-09-24 10:43:29
+# args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false, "target_halfwidth": 0.5}
+# caption    : Replications required to pin each pairwise difference to +/-0.5 minutes at 95% confidence
+"comparison","sd_diff_independent","sd_diff_crn","reps_needed_independent","reps_needed_crn","saving_factor"
+IFP vs ALT,15.535,3.527,"3,711",194,19.1x
+IFP vs SBP,18.179,2.474,"5,081",97,52.4x
+IFP vs WSEPT,16.977,3.627,"4,431",205,21.6x
+IFP vs GCMU,14.703,2.916,"3,325",134,24.8x
+ALT vs SBP,14.858,1.465,"3,395",36,94.3x
+ALT vs WSEPT,13.844,0.327,"2,948",5,589.6x
+ALT vs GCMU,14.958,0.679,"3,441",10,344.1x
+SBP vs WSEPT,14.073,1.494,"3,046",37,82.3x
+SBP vs GCMU,16.400,1.014,"4,136",19,217.7x
+WSEPT vs GCMU,14.672,0.770,"3,311",12,275.9x
