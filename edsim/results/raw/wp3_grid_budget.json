@@ -1,0 +1,29 @@
+{
+ "coarse": {
+  "points": 1891,
+  "reps": 15,
+  "simulations": 28365,
+  "best_x": [
+   4.0,
+   9.0
+  ],
+  "best_f": 47.61048167036019
+ },
+ "fine": {
+  "points": 441,
+  "reps": 50,
+  "simulations": 22050,
+  "best_x": [
+   4.1,
+   8.2
+  ],
+  "best_f": 46.460130965762865
+ },
+ "total_points": 2332,
+ "total_simulations": 50415,
+ "penalty_mu": 500.0,
+ "sl_min": {
+  "3": 0.95,
+  "4": 0.95
+ }
+}

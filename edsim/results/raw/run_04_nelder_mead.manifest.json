@@ -1,0 +1,239 @@
+{
+ "script": "run_04_nelder_mead",
+ "description": "WP3: a hand-written Nelder-Mead simplex optimiser with an exterior penalty for the service-level constraint, benchmarked against the base paper's brute-force grid search on equal terms (same objective, same seeds, budget counted in week-long simulations).",
+ "command": "python scripts/run_04_nelder_mead.py --reps 100 --seed 20250402 --workers 14",
+ "args": {
+  "reps": 100,
+  "seed": 20250402,
+  "workers": 14,
+  "quick": false,
+  "no_figures": false,
+  "opt_reps": 50,
+  "penalty_mu": 500.0,
+  "max_iter": 80,
+  "xtol": 0.05,
+  "ftol": 0.02,
+  "no_scipy": false
+ },
+ "timestamp": "2026-09-24 10:39:29",
+ "elapsed_seconds": 189.02,
+ "environment": {
+  "python": "3.11.4",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.2.6",
+  "scipy": "1.14.1",
+  "matplotlib": "3.9.2",
+  "pandas": "2.2.3"
+ },
+ "notes": {
+  "grid_simulations": 50415,
+  "nm_simulations": 2650,
+  "nm_speedup": 19.02,
+  "objective_gap_vs_grid_common_scoring": 0.0064,
+  "nelder_mead_optimum": [
+   2.312,
+   8.368
+  ]
+ },
+ "outputs": [
+  {
+   "kind": "table",
+   "name": "wp3_multistart",
+   "path": "results/tables/wp3_multistart.csv",
+   "caption": "Multi-start Nelder-Mead: each start, where it converged, and what it cost"
+  },
+  {
+   "kind": "table",
+   "name": "wp3_budget_comparison",
+   "path": "results/tables/wp3_budget_comparison.csv",
+   "caption": "Simulation budget required by brute-force grid search versus the hand-implemented Nelder-Mead simplex"
+  },
+  {
+   "kind": "table",
+   "name": "wp3_scipy_crosscheck",
+   "path": "results/tables/wp3_scipy_crosscheck.csv",
+   "caption": "Cross-check: our hand-written simplex against SciPy's implementation on the identical objective"
+  },
+  {
+   "kind": "table",
+   "name": "wp3_optimum_confirmation",
+   "path": "results/tables/wp3_optimum_confirmation.csv",
+   "caption": "Optima from each method, re-evaluated at 100 replications on identical streams"
+  },
+  {
+   "kind": "raw",
+   "name": "wp3_nelder_mead_optimum",
+   "path": "results/raw/wp3_nelder_mead_optimum.json",
+   "caption": ""
+  },
+  {
+   "kind": "figure",
+   "name": "wp3_convergence",
+   "path": "results/figures/wp3_convergence.png",
+   "caption": "Best objective found so far versus the number of week-long simulations consumed"
+  },
+  {
+   "kind": "figure",
+   "name": "wp3_simplex_path",
+   "path": "results/figures/wp3_simplex_path.png",
+   "caption": "The simplex trajectory drawn on the response surface that the brute-force lattice had to evaluate in full"
+  }
+ ],
+ "tables": {
+  "wp3_multistart": {
+   "headers": [
+    "start_point",
+    "converged_to",
+    "objective_min",
+    "iterations",
+    "simulations",
+    "converged"
+   ],
+   "rows": [
+    [
+     "(2, 5)",
+     "(3.292, 8.669)",
+     "46.4817",
+     20,
+     "2,100",
+     "yes"
+    ],
+    [
+     "(10, 30)",
+     "(2.312, 8.368)",
+     "46.4668",
+     24,
+     "2,650",
+     "yes"
+    ],
+    [
+     "(20, 70)",
+     "(20.551, 9.136)",
+     "46.5885",
+     25,
+     "2,500",
+     "yes"
+    ],
+    [
+     "(28, 110)",
+     "(25.963, 8.490)",
+     "46.6215",
+     24,
+     "2,550",
+     "yes"
+    ]
+   ]
+  },
+  "wp3_budget_comparison": {
+   "headers": [
+    "method",
+    "points_evaluated",
+    "reps_per_point",
+    "week_long_simulations",
+    "best_objective_min"
+   ],
+   "rows": [
+    [
+     "Grid search, coarse stage (paper's method)",
+     "1,891",
+     "15",
+     "28,365",
+     "47.6105"
+    ],
+    [
+     "Grid search, fine stage (paper's method)",
+     "441",
+     "50",
+     "22,050",
+     "46.4601"
+    ],
+    [
+     "Grid search, TOTAL",
+     "2,332",
+     "-",
+     "50,415",
+     "46.4601"
+    ],
+    [
+     "Nelder-Mead, single start (ours)",
+     "53",
+     "50",
+     "2,650",
+     "46.4668"
+    ],
+    [
+     "Nelder-Mead, 4 starts (ours)",
+     "196",
+     "50",
+     "9,800",
+     "46.4668"
+    ]
+   ]
+  },
+  "wp3_scipy_crosscheck": {
+   "headers": [
+    "implementation",
+    "optimum_k1_k2",
+    "objective_min",
+    "iterations",
+    "simulations"
+   ],
+   "rows": [
+    [
+     "ours (hand-written)",
+     "(2.312, 8.368)",
+     "46.4668",
+     24,
+     "2,650"
+    ],
+    [
+     "scipy.optimize.minimize",
+     "(2.312, 8.368)",
+     "46.4668",
+     24,
+     "2,650"
+    ]
+   ]
+  },
+  "wp3_optimum_confirmation": {
+   "headers": [
+    "setting",
+    "k1_k2",
+    "mean_wait_min",
+    "sd_min",
+    "SL3_pct",
+    "SL4_pct",
+    "constraint_status"
+   ],
+   "rows": [
+    [
+     "Nelder-Mead optimum",
+     "(2.31, 8.37)",
+     "44.18",
+     "11.95",
+     "95.42",
+     "95.64",
+     "feasible"
+    ],
+    [
+     "grid-search optimum",
+     "(4.10, 8.20)",
+     "44.17",
+     "11.94",
+     "97.73",
+     "95.49",
+     "feasible"
+    ],
+    [
+     "paper optimum (13.1, 2.1)",
+     "(13.10, 2.10)",
+     "44.08",
+     "11.91",
+     "99.99",
+     "89.40",
+     "INFEASIBLE"
+    ]
+   ]
+  }
+ }
+}
