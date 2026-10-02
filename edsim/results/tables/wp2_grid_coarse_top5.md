@@ -1,0 +1,11 @@
+### Best coarse-grid (step 1.0) threshold pairs -- our analogue of the paper's Table 3
+
+| rank | k1_k2 | mean_wait_min | SL3_pct | SL4_pct | penalty_min | objective_min |
+|---|---|---|---|---|---|---|
+| 1 | (4, 9) | 47.61 | 97.07 | 95.07 | 0.00 | 47.61 |
+| 2 | (8, 9) | 47.61 | 99.60 | 95.23 | 0.00 | 47.61 |
+| 3 | (7, 9) | 47.62 | 99.36 | 95.16 | 0.00 | 47.62 |
+| 4 | (4, 10) | 47.62 | 97.20 | 95.69 | 0.00 | 47.62 |
+| 5 | (6, 9) | 47.64 | 98.86 | 95.33 | 0.00 | 47.64 |
+
+<sub>produced by: scripts/run_02_grid_search.py &middot; command    : python scripts/run_02_grid_search.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:31:05 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false, "coarse_reps": 15, "fine_reps": 50, "coarse_step": 1.0, "fine_step": 0.1, "k1_max": 30.0, "k2_max": 60.0, "penalty_mu": 500.0}</sub>
