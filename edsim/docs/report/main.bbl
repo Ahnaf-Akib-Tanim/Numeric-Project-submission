@@ -1,0 +1,260 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{18}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter does
+%%% not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+\makeatletter
+\@ifundefined{NAT@parse@date}{}{\let\NAT@parse@date@orig\NAT@parse@date}
+\@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
+\makeatother
+
+\bibitem[Buyukkoc et~al\mbox{.}(1985)]%
+        {buyukkoc1985cmu}
+\bibfield{author}{\bibinfo{person}{Cagatay Buyukkoc}, \bibinfo{person}{Pravin
+  Varaiya}, {and} \bibinfo{person}{Jean Walrand}.}
+  \bibinfo{year}{1985}\natexlab{}.
+\newblock \showarticletitle{The c$\mu$ Rule Revisited}.
+\newblock \bibinfo{journal}{\emph{Advances in Applied Probability}}
+  \bibinfo{volume}{17}, \bibinfo{number}{1} (\bibinfo{year}{1985}),
+  \bibinfo{pages}{237--238}.
+\newblock
+\href{https://doi.org/10.2307/1427064}{doi:\nolinkurl{10.2307/1427064}}
+
+
+\bibitem[Cox and Smith(1961)]%
+        {cox1961queues}
+\bibfield{author}{\bibinfo{person}{David~R. Cox} {and}
+  \bibinfo{person}{Walter~L. Smith}.} \bibinfo{year}{1961}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Queues}}.
+\newblock \bibinfo{publisher}{Methuen}, \bibinfo{address}{London, UK}.
+\newblock
+
+
+\bibitem[Davenport et~al\mbox{.}(2001)]%
+        {davenport2001slack}
+\bibfield{author}{\bibinfo{person}{Andrew~J. Davenport},
+  \bibinfo{person}{Christophe Gefflot}, {and} \bibinfo{person}{J.~Christopher
+  Beck}.} \bibinfo{year}{2001}\natexlab{}.
+\newblock \showarticletitle{Slack-Based Techniques for Robust Schedules}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the Sixth European Conference
+  on Planning (ECP-2001)}} (\bibinfo{year}{2001}), \bibinfo{pages}{7--18}.
+\newblock
+
+
+\bibitem[Harris et~al\mbox{.}(2020)]%
+        {harris2020numpy}
+\bibfield{author}{\bibinfo{person}{Charles~R. Harris},
+  \bibinfo{person}{K.~Jarrod Millman}, \bibinfo{person}{St{\'e}fan~J. van~der
+  Walt}, {et~al\mbox{.}}} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Array Programming with {NumPy}}.
+\newblock \bibinfo{journal}{\emph{Nature}} \bibinfo{volume}{585},
+  \bibinfo{number}{7825} (\bibinfo{year}{2020}), \bibinfo{pages}{357--362}.
+\newblock
+\href{https://doi.org/10.1038/s41586-020-2649-2}{doi:\nolinkurl{10.1038/s41586-020-2649-2}}
+
+
+\bibitem[Huang et~al\mbox{.}(2015)]%
+        {huang2015control}
+\bibfield{author}{\bibinfo{person}{Junfei Huang}, \bibinfo{person}{Boaz
+  Carmeli}, {and} \bibinfo{person}{Avishai Mandelbaum}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Control of Patient Flow in Emergency Departments,
+  or Multiclass Queues with Deadlines and Feedback}.
+\newblock \bibinfo{journal}{\emph{Operations Research}} \bibinfo{volume}{63},
+  \bibinfo{number}{4} (\bibinfo{year}{2015}), \bibinfo{pages}{892--908}.
+\newblock
+\href{https://doi.org/10.1287/opre.2015.1389}{doi:\nolinkurl{10.1287/opre.2015.1389}}
+
+
+\bibitem[Hunter(2007)]%
+        {hunter2007matplotlib}
+\bibfield{author}{\bibinfo{person}{John~D. Hunter}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Matplotlib: A 2{D} Graphics Environment}.
+\newblock \bibinfo{journal}{\emph{Computing in Science \& Engineering}}
+  \bibinfo{volume}{9}, \bibinfo{number}{3} (\bibinfo{year}{2007}),
+  \bibinfo{pages}{90--95}.
+\newblock
+\href{https://doi.org/10.1109/MCSE.2007.55}{doi:\nolinkurl{10.1109/MCSE.2007.55}}
+
+
+\bibitem[Kim et~al\mbox{.}(2015)]%
+        {kim2015saa}
+\bibfield{author}{\bibinfo{person}{Sujin Kim}, \bibinfo{person}{Raghu
+  Pasupathy}, {and} \bibinfo{person}{Shane~G. Henderson}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{A Guide to Sample Average Approximation}.
+\newblock \bibinfo{journal}{\emph{Handbook of Simulation Optimization}}
+  (\bibinfo{year}{2015}), \bibinfo{pages}{207--243}.
+\newblock
+\href{https://doi.org/10.1007/978-1-4939-1384-8_8}{doi:\nolinkurl{10.1007/978-1-4939-1384-8_8}}
+
+
+\bibitem[Law(2015)]%
+        {law2015simulation}
+\bibfield{author}{\bibinfo{person}{Averill~M. Law}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Simulation Modeling and Analysis}
+  (\bibinfo{edition}{5th} ed.)}.
+\newblock \bibinfo{publisher}{McGraw-Hill Education}, \bibinfo{address}{New
+  York, NY, USA}.
+\newblock
+
+
+\bibitem[Lewis and Shedler(1979)]%
+        {lewis1979thinning}
+\bibfield{author}{\bibinfo{person}{Peter A.~W. Lewis} {and}
+  \bibinfo{person}{Gerald~S. Shedler}.} \bibinfo{year}{1979}\natexlab{}.
+\newblock \showarticletitle{Simulation of Nonhomogeneous {Poisson} Processes by
+  Thinning}.
+\newblock \bibinfo{journal}{\emph{Naval Research Logistics Quarterly}}
+  \bibinfo{volume}{26}, \bibinfo{number}{3} (\bibinfo{year}{1979}),
+  \bibinfo{pages}{403--413}.
+\newblock
+\href{https://doi.org/10.1002/nav.3800260304}{doi:\nolinkurl{10.1002/nav.3800260304}}
+
+
+\bibitem[Lv et~al\mbox{.}(2026)]%
+        {lv2026des}
+\bibfield{author}{\bibinfo{person}{Wei Lv}, \bibinfo{person}{Runzhang Liu},
+  \bibinfo{person}{Feiyi Yan}, {and} \bibinfo{person}{Yan Wang}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{Discrete Event Simulation-Based Analysis and
+  Optimization of Emergency Patient Scheduling Strategies}.
+\newblock \bibinfo{journal}{\emph{Healthcare}} \bibinfo{volume}{14},
+  \bibinfo{number}{1} (\bibinfo{year}{2026}), \bibinfo{pages}{99}.
+\newblock
+\href{https://doi.org/10.3390/healthcare14010099}{doi:\nolinkurl{10.3390/healthcare14010099}}
+
+
+\bibitem[Mandelbaum and Stolyar(2004)]%
+        {mandelbaum2004convex}
+\bibfield{author}{\bibinfo{person}{Avishai Mandelbaum} {and}
+  \bibinfo{person}{Alexander~L. Stolyar}.} \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Scheduling Flexible Servers with Convex Delay
+  Costs: Heavy-Traffic Optimality of the Generalized c$\mu$-Rule}.
+\newblock \bibinfo{journal}{\emph{Operations Research}} \bibinfo{volume}{52},
+  \bibinfo{number}{6} (\bibinfo{year}{2004}), \bibinfo{pages}{836--855}.
+\newblock
+\href{https://doi.org/10.1287/opre.1040.0152}{doi:\nolinkurl{10.1287/opre.1040.0152}}
+
+
+\bibitem[Nelder and Mead(1965)]%
+        {nelder1965simplex}
+\bibfield{author}{\bibinfo{person}{John~A. Nelder} {and} \bibinfo{person}{Roger
+  Mead}.} \bibinfo{year}{1965}\natexlab{}.
+\newblock \showarticletitle{A Simplex Method for Function Minimization}.
+\newblock \bibinfo{journal}{\emph{Comput. J.}} \bibinfo{volume}{7},
+  \bibinfo{number}{4} (\bibinfo{year}{1965}), \bibinfo{pages}{308--313}.
+\newblock
+\href{https://doi.org/10.1093/comjnl/7.4.308}{doi:\nolinkurl{10.1093/comjnl/7.4.308}}
+
+
+\bibitem[Nocedal and Wright(2006)]%
+        {nocedal2006numerical}
+\bibfield{author}{\bibinfo{person}{Jorge Nocedal} {and}
+  \bibinfo{person}{Stephen~J. Wright}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Numerical Optimization}
+  (\bibinfo{edition}{2nd} ed.)}.
+\newblock \bibinfo{publisher}{Springer}, \bibinfo{address}{New York, NY, USA}.
+\newblock
+\href{https://doi.org/10.1007/978-0-387-40065-5}{doi:\nolinkurl{10.1007/978-0-387-40065-5}}
+
+
+\bibitem[O'Neill(2014)]%
+        {oneill2014pcg}
+\bibfield{author}{\bibinfo{person}{Melissa~E. O'Neill}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{{PCG}: A Family of Simple Fast Space-Efficient
+  Statistically Good Algorithms for Random Number Generation}.
+\newblock \bibinfo{journal}{\emph{ACM Trans. Math. Software}}
+  (\bibinfo{year}{2014}).
+\newblock
+\newblock
+\shownote{Technical Report HMC-CS-2014-0905, Harvey Mudd College}.
+
+
+\bibitem[Van~Mieghem(1995)]%
+        {vanmieghem1995gcmu}
+\bibfield{author}{\bibinfo{person}{Jan~A. Van~Mieghem}.}
+  \bibinfo{year}{1995}\natexlab{}.
+\newblock \showarticletitle{Dynamic Scheduling with Convex Delay Costs: The
+  Generalized c$\mu$ Rule}.
+\newblock \bibinfo{journal}{\emph{The Annals of Applied Probability}}
+  \bibinfo{volume}{5}, \bibinfo{number}{3} (\bibinfo{year}{1995}),
+  \bibinfo{pages}{809--833}.
+\newblock
+\href{https://doi.org/10.1214/aoap/1177004706}{doi:\nolinkurl{10.1214/aoap/1177004706}}
+
+
+\bibitem[Vanbrabant et~al\mbox{.}(2019)]%
+        {vanbrabant2019kpi}
+\bibfield{author}{\bibinfo{person}{Lien Vanbrabant}, \bibinfo{person}{Kris
+  Braekers}, \bibinfo{person}{Katrien Ramaekers}, {and} \bibinfo{person}{Inneke
+  Van~Nieuwenhuyse}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Simulation of Emergency Department Operations: A
+  Comprehensive Review of {KPI}s and Operational Improvements}.
+\newblock \bibinfo{journal}{\emph{Computers \& Industrial Engineering}}
+  \bibinfo{volume}{131} (\bibinfo{year}{2019}), \bibinfo{pages}{356--381}.
+\newblock
+\href{https://doi.org/10.1016/j.cie.2019.03.025}{doi:\nolinkurl{10.1016/j.cie.2019.03.025}}
+
+
+\bibitem[Virtanen et~al\mbox{.}(2020)]%
+        {virtanen2020scipy}
+\bibfield{author}{\bibinfo{person}{Pauli Virtanen}, \bibinfo{person}{Ralf
+  Gommers}, \bibinfo{person}{Travis~E. Oliphant}, {et~al\mbox{.}}}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{SciPy} 1.0: Fundamental Algorithms for Scientific
+  Computing in {Python}}.
+\newblock \bibinfo{journal}{\emph{Nature Methods}} \bibinfo{volume}{17},
+  \bibinfo{number}{3} (\bibinfo{year}{2020}), \bibinfo{pages}{261--272}.
+\newblock
+\href{https://doi.org/10.1038/s41592-019-0686-2}{doi:\nolinkurl{10.1038/s41592-019-0686-2}}
+
+
+\bibitem[Wang and Demeulemeester(2023)]%
+        {wang2023simopt}
+\bibfield{author}{\bibinfo{person}{Lien Wang} {and} \bibinfo{person}{Erik
+  Demeulemeester}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Simulation Optimization in Healthcare Resource
+  Planning: A Literature Review}.
+\newblock \bibinfo{journal}{\emph{IISE Transactions}} \bibinfo{volume}{55},
+  \bibinfo{number}{10} (\bibinfo{year}{2023}), \bibinfo{pages}{985--1007}.
+\newblock
+\href{https://doi.org/10.1080/24725854.2022.2147606}{doi:\nolinkurl{10.1080/24725854.2022.2147606}}
+
+
+\end{thebibliography}
