@@ -1,0 +1,13 @@
+# produced by: scripts/run_05_staffing_cost.py
+# command    : python scripts/run_05_staffing_cost.py --reps 100 --seed 20250402 --workers 14
+# timestamp  : 2026-09-24 10:42:57
+# args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false, "alpha": 120.0, "beta": 0.5, "gamma": 50.0, "screen_reps": 8, "refine_reps": 25, "n_refine": 6, "lo": 2, "hi": 8}
+# caption    : The base paper's seven staffing scenarios evaluated under our cost model
+"scenario","roster","physician_hours","mean_wait_min","utilisation_pct","SL4_pct","staff_cost","wait_cost","total_cost"
+S0,"(5, 5, 3)",714,44.18,86.3,95.64,"85,680","48,798","139,391"
+S1,"(5, 5, 4)",777,35.19,79.5,98.53,"93,240","38,959","134,121"
+S2,"(5, 5, 5)",840,31.25,73.7,99.32,"100,800","34,659","136,490"
+S3,"(5, 6, 5)",889,16.34,69.8,99.98,"106,680","18,166","124,942"
+S4,"(5, 7, 5)",938,11.45,66.1,100.00,"112,560","12,722","125,327"
+S5,"(6, 7, 5)",994,4.32,62.4,100.00,"119,280","4,800","124,082"
+S6,"(7, 7, 5)",1050,2.38,59.1,100.00,"126,000","2,650","128,652"

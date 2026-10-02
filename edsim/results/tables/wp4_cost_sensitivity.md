@@ -1,0 +1,11 @@
+### Sensitivity of the staffing recommendation to the economic weights
+
+| cost_scenario | alpha | beta | gamma | winning_roster | winning_cost | cost_of_paper_roster | saving_vs_paper |
+|---|---|---|---|---|---|---|---|
+| baseline | 120 | 0.5 | 50 | (6, 6, 3) | 110,513 | 139,391 | -20.7% |
+| waiting valued 4x | 120 | 2 | 50 | (6, 7, 3) | 133,862 | 285,787 | -53.2% |
+| waiting valued 1/4 | 120 | 0.125 | 50 | (5, 6, 3) | 97,408 | 102,792 | -5.2% |
+| physicians 1.5x dearer | 180 | 0.5 | 50 | (6, 6, 3) | 159,653 | 182,231 | -12.4% |
+| SLA breach 10x dearer | 120 | 0.5 | 500 | (6, 6, 3) | 111,049 | 183,605 | -39.5% |
+
+<sub>produced by: scripts/run_05_staffing_cost.py &middot; command    : python scripts/run_05_staffing_cost.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:43:07 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false, "alpha": 120.0, "beta": 0.5, "gamma": 50.0, "screen_reps": 8, "refine_reps": 25, "n_refine": 6, "lo": 2, "hi": 8}</sub>
