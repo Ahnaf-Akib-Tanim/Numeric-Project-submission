@@ -1,0 +1,9 @@
+# Python 3.9+ (developed and tested on 3.11.4)
+#
+# The discrete-event engine itself uses only the standard library (heapq,
+# collections, dataclasses).  These packages are used for random-variate
+# generation, statistics, tabulation and figures.
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+pandas>=2.0

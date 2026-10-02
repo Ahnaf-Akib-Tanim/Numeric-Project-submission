@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Editor / tool folders
+.kilo/
+.vscode/
+.idea/
+
+# LaTeX build artefacts (the .log files in edsim/results/raw/ are real results
+# and must NOT be ignored, so .log is only ignored inside the LaTeX folders)
+*.aux
+*.out
+*.nav
+*.snm
+*.toc
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.cut
+edsim/docs/report/*.log
+edsim/docs/slides/*.log
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Personal notes kept out of the repo
+paper summar. pdf.pdf
