@@ -1,0 +1,355 @@
+{
+ "script": "run_01_validate_paper",
+ "description": "WP1: from-scratch rebuild of the base paper's emergency-department discrete-event model, validated against every published KPI, statistical test and equipment table.",
+ "command": "python scripts/run_01_validate_paper.py --reps 100 --seed 20250402 --workers 14",
+ "args": {
+  "reps": 100,
+  "seed": 20250402,
+  "workers": 14,
+  "quick": false,
+  "no_figures": false
+ },
+ "timestamp": "2026-09-24 10:24:44",
+ "elapsed_seconds": 14.27,
+ "environment": {
+  "python": "3.11.4",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.2.6",
+  "scipy": "1.14.1",
+  "matplotlib": "3.9.2",
+  "pandas": "2.2.3"
+ },
+ "notes": {
+  "n_replications": 100,
+  "base_seed": 20250402,
+  "crn": true,
+  "offered_load_rho": 0.87,
+  "E_initial_consult_min": 9.0926,
+  "E_followup_consult_min": 12.841,
+  "arrival_relative_L1_error": 0.01672,
+  "arrival_correlation_with_table2": 0.999142,
+  "service_sampler_in_bounds": true,
+  "qualitative_checks_passed": 6,
+  "qualitative_checks_total": 6
+ },
+ "outputs": [
+  {
+   "kind": "table",
+   "name": "wp1_paper_comparison",
+   "path": "results/tables/wp1_paper_comparison.csv",
+   "caption": "WP1 validation: every KPI of the rebuilt simulator against the corresponding published value in the base paper"
+  },
+  {
+   "kind": "table",
+   "name": "wp1_significance",
+   "path": "results/tables/wp1_significance.csv",
+   "caption": "Paired t-tests with Bonferroni correction and Cohen's d, alongside the paper's Table 5 / Table 6 values"
+  },
+  {
+   "kind": "table",
+   "name": "wp1_equipment_utilisation",
+   "path": "results/tables/wp1_equipment_utilisation.csv",
+   "caption": "Equipment utilisation reproduced against the paper's Table 9"
+  },
+  {
+   "kind": "raw",
+   "name": "wp1_replications",
+   "path": "results/raw/wp1_replications.csv",
+   "caption": ""
+  },
+  {
+   "kind": "figure",
+   "name": "wp1_arrival_validation",
+   "path": "results/figures/wp1_arrival_validation.png",
+   "caption": "Validation of the non-homogeneous Poisson arrival process against Table 2 of the paper"
+  },
+  {
+   "kind": "figure",
+   "name": "wp1_waiting_boxplot",
+   "path": "results/figures/wp1_waiting_boxplot.png",
+   "caption": "Reproduction of the paper's Figure 3: waiting-time distribution across replications, with the paper's published means overlaid"
+  },
+  {
+   "kind": "figure",
+   "name": "wp1_mean_wait_bars",
+   "path": "results/figures/wp1_mean_wait_bars.png",
+   "caption": "Mean waiting time by policy with 95% CIs"
+  },
+  {
+   "kind": "figure",
+   "name": "wp1_service_level_l4",
+   "path": "results/figures/wp1_service_level_l4.png",
+   "caption": "Level IV service level by policy (paper Table 7)"
+  }
+ ],
+ "tables": {
+  "wp1_paper_comparison": {
+   "headers": [
+    "policy",
+    "metric",
+    "ours_mean",
+    "ours_sd",
+    "paper_value",
+    "deviation"
+   ],
+   "rows": [
+    [
+     "IFP",
+     "Mean waiting time, all patients (min)",
+     "52.43",
+     "14.10",
+     "46.26",
+     "+13.3%"
+    ],
+    [
+     "IFP",
+     "Mean waiting time, Level III (min)",
+     "50.88",
+     "14.81",
+     "44.14",
+     "+15.3%"
+    ],
+    [
+     "IFP",
+     "Mean waiting time, Level IV (min)",
+     "52.94",
+     "13.98",
+     "not published",
+     "n/a"
+    ],
+    [
+     "IFP",
+     "Service level, Level III (%)",
+     "100.00",
+     "0.00",
+     "100.00",
+     "+0.0%"
+    ],
+    [
+     "IFP",
+     "Service level, Level IV (%)",
+     "100.00",
+     "0.00",
+     "100.00",
+     "+0.0%"
+    ],
+    [
+     "IFP",
+     "Physician utilisation (%)",
+     "86.36",
+     "1.92",
+     "85.43",
+     "+1.1%"
+    ],
+    [
+     "ALT",
+     "Mean waiting time, all patients (min)",
+     "42.39",
+     "10.70",
+     "37.88",
+     "+11.9%"
+    ],
+    [
+     "ALT",
+     "Mean waiting time, Level III (min)",
+     "6.05",
+     "0.57",
+     "6.82",
+     "-11.2%"
+    ],
+    [
+     "ALT",
+     "Mean waiting time, Level IV (min)",
+     "54.61",
+     "14.10",
+     "not published",
+     "n/a"
+    ],
+    [
+     "ALT",
+     "Service level, Level III (%)",
+     "99.96",
+     "0.13",
+     "98.08",
+     "+1.9%"
+    ],
+    [
+     "ALT",
+     "Service level, Level IV (%)",
+     "87.37",
+     "5.59",
+     "89.29",
+     "-2.2%"
+    ],
+    [
+     "ALT",
+     "Physician utilisation (%)",
+     "86.34",
+     "1.93",
+     "85.41",
+     "+1.1%"
+    ],
+    [
+     "SBP",
+     "Mean waiting time, all patients (min)",
+     "44.08",
+     "11.91",
+     "35.25",
+     "+25.1%"
+    ],
+    [
+     "SBP",
+     "Mean waiting time, Level III (min)",
+     "12.35",
+     "6.04",
+     "10.48",
+     "+17.9%"
+    ],
+    [
+     "SBP",
+     "Mean waiting time, Level IV (min)",
+     "54.74",
+     "14.07",
+     "43.89",
+     "+24.7%"
+    ],
+    [
+     "SBP",
+     "Service level, Level III (%)",
+     "99.99",
+     "0.04",
+     "100.00",
+     "-0.0%"
+    ],
+    [
+     "SBP",
+     "Service level, Level IV (%)",
+     "89.40",
+     "4.51",
+     "100.00",
+     "-10.6%"
+    ],
+    [
+     "SBP",
+     "Physician utilisation (%)",
+     "86.34",
+     "1.93",
+     "84.98",
+     "+1.6%"
+    ]
+   ]
+  },
+  "wp1_significance": {
+   "headers": [
+    "comparison",
+    "mean_diff_min",
+    "t_stat",
+    "p_value",
+    "significant_after_bonferroni",
+    "cohens_d",
+    "interpretation",
+    "paper_mean_diff_min",
+    "paper_cohens_d"
+   ],
+   "rows": [
+    [
+     "IFP vs ALT",
+     "10.0415",
+     "28.4706",
+     "1.774e-49",
+     "Yes",
+     "2.8471",
+     "Huge effect",
+     "8.1000",
+     "2.0099"
+    ],
+    [
+     "IFP vs SBP",
+     "8.3457",
+     "33.7338",
+     "4.294e-56",
+     "Yes",
+     "3.3734",
+     "Huge effect",
+     "10.5521",
+     "2.8245"
+    ],
+    [
+     "ALT vs SBP",
+     "-1.6958",
+     "-11.5769",
+     "4.145e-20",
+     "Yes",
+     "-1.1577",
+     "Large effect",
+     "2.4521",
+     "1.5437"
+    ]
+   ]
+  },
+  "wp1_equipment_utilisation": {
+   "headers": [
+    "equipment",
+    "n_exams",
+    "paper_n_exams",
+    "mean_duration_min",
+    "paper_duration_min",
+    "total_duration_min",
+    "available_min",
+    "utilisation_pct",
+    "paper_utilisation_pct",
+    "mean_queue_delay_min"
+   ],
+   "rows": [
+    [
+     "XRAY",
+     "392",
+     "389",
+     "3.99",
+     "3.99",
+     "1563.72",
+     "10080",
+     "15.51",
+     "15.20",
+     "0.387"
+    ],
+    [
+     "CT",
+     "745",
+     "715",
+     "2.45",
+     "2.45",
+     "1824.96",
+     "10080",
+     "18.10",
+     "17.64",
+     "0.259"
+    ],
+    [
+     "LABORATORY",
+     "1242",
+     "1228",
+     "1.19",
+     "1.19",
+     "1478.56",
+     "10080",
+     "14.67",
+     "14.36",
+     "0.069"
+    ],
+    [
+     "ULTRASOUND",
+     "296",
+     "266",
+     "6.58",
+     "6.58",
+     "1947.75",
+     "10080",
+     "19.32",
+     "19.03",
+     "0.864"
+    ]
+   ]
+  }
+ }
+}

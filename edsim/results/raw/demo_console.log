@@ -1,0 +1,131 @@
+
+================================================================================
+  ED PATIENT-FLOW SIMULATOR -- LIVE DEMONSTRATION
+  run_00_demo.py  |  watch the discrete-event engine work
+================================================================================
+
+Run settings
+--------------------
+  replications per policy                100 
+  base seed                              20250402 
+  worker processes                       14 
+  horizon                                10080 min  (1 operational week)
+  quick mode                             off 
+  demo policy                            SBP 
+
+Generating the exogenous patient stream
+-------------------------------------------
+  patients generated                     2,317 
+  Level III share                        25.2 %
+  needing diagnostics                    58.5 %
+  mean initial consult                   9.10 min
+  mean follow-up consult                 12.90 min
+  generation time                        0.211 s
+
+
+1. Event trace -- policy SBP, first 3 simulated hours
+---------------------------------------------------------
+  Every line is one state transition inside the event loop. Columns: simulated clock | event | detail
+
+   Mon 00:06 t=    6.62  ARRIVAL         patient #0     Level 4  (exams: 1)
+   Mon 00:06 t=    6.62  START             #0     initial L4   wait=   0.0  svc=  9.7  busy=1/3
+   Mon 00:16 t=   16.34  CONSULT-END    #0     initial done (waited 0.0 min)
+   Mon 00:37 t=   37.53  RESULTS            #0     all results in -> follow-up queue
+   Mon 00:37 t=   37.53  START             #0     follow-up    wait=   0.0  svc= 20.5  busy=1/3
+   Mon 00:40 t=   40.84  ARRIVAL         patient #1     Level 3  (exams: 3)
+   Mon 00:40 t=   40.84  START             #1     initial L3   wait=   0.0  svc=  5.9  busy=2/3
+   Mon 00:42 t=   42.80  ARRIVAL         patient #2     Level 4  (exams: 0)
+   Mon 00:42 t=   42.80  START             #2     initial L4   wait=   0.0  svc=  5.5  busy=3/3
+   Mon 00:46 t=   46.72  CONSULT-END    #1     initial done (waited 0.0 min)
+   Mon 00:48 t=   48.28  CONSULT-END    #2     initial done (waited 0.0 min)
+   Mon 00:58 t=   58.05  CONSULT-END    #0     follow-up done (waited 0.0 min)
+   Mon 01:04 t=   64.93  ARRIVAL         patient #3     Level 3  (exams: 2)
+   Mon 01:04 t=   64.93  START             #3     initial L3   wait=   0.0  svc=  7.3  busy=1/3
+   Mon 01:12 t=   72.24  CONSULT-END    #3     initial done (waited 0.0 min)
+   Mon 01:23 t=   83.16  RESULTS            #1     all results in -> follow-up queue
+   Mon 01:23 t=   83.16  START             #1     follow-up    wait=   0.0  svc= 23.6  busy=1/3
+   Mon 01:23 t=   83.30  ARRIVAL         patient #4     Level 3  (exams: 2)
+   Mon 01:23 t=   83.30  START             #4     initial L3   wait=   0.0  svc=  9.4  busy=2/3
+   Mon 01:32 t=   92.66  ARRIVAL         patient #5     Level 4  (exams: 0)
+   Mon 01:32 t=   92.66  START             #5     initial L4   wait=   0.0  svc= 13.5  busy=3/3
+   Mon 01:32 t=   92.71  CONSULT-END    #4     initial done (waited 0.0 min)
+   Mon 01:37 t=   97.94  ARRIVAL         patient #6     Level 4  (exams: 3)
+   Mon 01:37 t=   97.94  START             #6     initial L4   wait=   0.0  svc=  5.6  busy=3/3
+   Mon 01:43 t=  103.56  CONSULT-END    #6     initial done (waited 0.0 min)
+   Mon 01:44 t=  104.69  RESULTS            #3     all results in -> follow-up queue
+   Mon 01:44 t=  104.69  START             #3     follow-up    wait=   0.0  svc=  5.7  busy=3/3
+   Mon 01:45 t=  105.64  ARRIVAL         patient #7     Level 4  (exams: 0)
+   Mon 01:46 t=  106.15  CONSULT-END    #5     initial done (waited 0.0 min)
+   Mon 01:46 t=  106.15  START             #7     initial L4   wait=   0.5  svc=  7.7  busy=3/3
+   Mon 01:46 t=  106.76  CONSULT-END    #1     follow-up done (waited 0.0 min)
+   Mon 01:46 t=  106.82  ARRIVAL         patient #8     Level 4  (exams: 0)
+   Mon 01:46 t=  106.82  START             #8     initial L4   wait=   0.0  svc= 14.3  busy=3/3
+   Mon 01:47 t=  107.32  ARRIVAL         patient #9     Level 4  (exams: 2)
+   Mon 01:48 t=  108.58  ARRIVAL         patient #10    Level 4  (exams: 1)
+   Mon 01:50 t=  110.38  CONSULT-END    #3     follow-up done (waited 0.0 min)
+   Mon 01:50 t=  110.38  START             #9     initial L4   wait=   3.1  svc= 10.9  busy=3/3
+   Mon 01:51 t=  111.19  ARRIVAL         patient #11    Level 4  (exams: 0)
+   Mon 01:53 t=  113.85  CONSULT-END    #7     initial done (waited 0.5 min)
+   Mon 01:53 t=  113.85  START             #10    initial L4   wait=   5.3  svc=  9.1  busy=3/3
+   Mon 01:58 t=  118.97  ARRIVAL         patient #12    Level 4  (exams: 0)
+   Mon 02:01 t=  121.16  CONSULT-END    #8     initial done (waited 0.0 min)
+   Mon 02:01 t=  121.16  START             #11    initial L4   wait=  10.0  svc=  6.9  busy=3/3
+   Mon 02:01 t=  121.32  CONSULT-END    #9     initial done (waited 3.1 min)
+   Mon 02:01 t=  121.32  START             #12    initial L4   wait=   2.4  svc= 13.8  busy=3/3
+   Mon 02:02 t=  122.93  CONSULT-END    #10    initial done (waited 5.3 min)
+   Mon 02:06 t=  126.70  RESULTS            #4     all results in -> follow-up queue
+   Mon 02:06 t=  126.70  START             #4     follow-up    wait=   0.0  svc= 12.8  busy=3/3
+   Mon 02:08 t=  128.08  CONSULT-END    #11    initial done (waited 10.0 min)
+   Mon 02:11 t=  131.16  ARRIVAL         patient #13    Level 4  (exams: 3)
+   Mon 02:11 t=  131.16  START             #13    initial L4   wait=   0.0  svc= 10.1  busy=3/3
+   Mon 02:15 t=  135.11  CONSULT-END    #12    initial done (waited 2.4 min)
+   Mon 02:19 t=  139.51  CONSULT-END    #4     follow-up done (waited 0.0 min)
+   Mon 02:20 t=  140.00  RESULTS            #6     all results in -> follow-up queue
+   Mon 02:20 t=  140.00  START             #6     follow-up    wait=   0.0  svc=  8.3  busy=2/3
+   Mon 02:21 t=  141.03  ARRIVAL         patient #14    Level 4  (exams: 2)
+   Mon 02:21 t=  141.03  START             #14    initial L4   wait=   0.0  svc=  5.8  busy=3/3
+   Mon 02:21 t=  141.24  CONSULT-END    #13    initial done (waited 0.0 min)
+   Mon 02:22 t=  142.51  RESULTS            #9     all results in -> follow-up queue
+   Mon 02:22 t=  142.51  START             #9     follow-up    wait=   0.0  svc= 24.2  busy=3/3
+   Mon 02:24 t=  144.12  RESULTS            #10    all results in -> follow-up queue
+   Mon 02:26 t=  146.80  CONSULT-END    #14    initial done (waited 0.0 min)
+   Mon 02:26 t=  146.80  START             #10    follow-up    wait=   2.7  svc=  9.3  busy=3/3
+   Mon 02:27 t=  147.72  ARRIVAL         patient #15    Level 4  (exams: 2)
+   Mon 02:28 t=  148.31  CONSULT-END    #6     follow-up done (waited 0.0 min)
+   Mon 02:28 t=  148.31  START             #15    initial L4   wait=   0.6  svc=  6.1  busy=3/3
+   Mon 02:34 t=  154.39  CONSULT-END    #15    initial done (waited 0.6 min)
+   Mon 02:36 t=  156.11  CONSULT-END    #10    follow-up done (waited 2.7 min)
+   Mon 02:46 t=  166.72  CONSULT-END    #9     follow-up done (waited 0.0 min)
+   Mon 02:57 t=  177.68  RESULTS            #13    all results in -> follow-up queue
+   Mon 02:57 t=  177.68  START             #13    follow-up    wait=   0.0  svc=  6.8  busy=1/3
+
+  (71 events shown; the full week processes 10,027 events)
+
+
+3. One week, every policy, identical patient stream
+-------------------------------------------------------
+  Because the patient stream is generated up front, all five runs see exactly the same arrivals, triage levels, service times and exam requirements.  Every difference below is caused by scheduling alone.
+
+  Per-patient waiting time (min) and KPIs -- single replication
+  policy  W_total   W_L3   W_L4  init L3  init L4  follow  SL3 %  SL4 %  util %  done  unfin   sec
+  ------  -------  -----  -----  -------  -------  ------  -----  -----  ------  ----  -----  ----
+  IFP       60.55  59.87  60.78     1.85     4.24   98.14  100.0  100.0    88.8  2290     27  0.06
+  ALT       49.73   6.86  64.30     3.30    61.21    5.47  100.0   82.9    88.8  2295     22  0.06
+  SBP       53.14  16.58  65.58     5.65    51.27   23.02  100.0   86.2    88.8  2297     20  0.08
+  WSEPT     50.13   4.04  65.80     1.75    63.47    3.96  100.0   83.0    88.8  2297     20  0.05
+  GCMU      51.47  16.48  63.36     4.53    51.49   20.37  100.0   87.7    88.8  2296     21  0.08
+
+  W_total / W_L3 / W_L4 are per-PATIENT totals (initial + follow-up wait); 'init' and 'follow' columns break that down per consultation.
+
+
+Rendering the week trace
+----------------------------
+
+Outputs
+--------------------
+  saved -> results/tables/demo_single_week_comparison.csv
+  saved -> results/figures/demo_week_trace.png
+  provenance appended to results/PROVENANCE.md
+
+  [OK] Demo complete. Try: python scripts/run_01_validate_paper.py
+
