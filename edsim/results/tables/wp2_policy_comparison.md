@@ -1,0 +1,11 @@
+### Five-policy comparison: the paper's three heuristics plus the c-mu rule and its generalisation
+
+| policy | source | mean_wait_min | ci95 | wait_L3_min | wait_L4_min | holding_cost | SL3_pct | SL4_pct | physician_util_pct |
+|---|---|---|---|---|---|---|---|---|---|
+| IFP | paper | 52.43 | [49.63, 55.22] | 50.88 | 52.94 | 0.7550 | 100.00 | 100.00 | 86.36 |
+| ALT | paper | 42.39 | [40.26, 44.51] | 6.05 | 54.61 | 0.3913 | 99.96 | 87.37 | 86.34 |
+| SBP | paper | 44.08 | [41.72, 46.44] | 12.35 | 54.74 | 0.4450 | 99.99 | 89.40 | 86.34 |
+| WSEPT | ours | 42.32 | [40.21, 44.43] | 3.76 | 55.30 | 0.3763 | 100.00 | 86.87 | 86.34 |
+| GCMU | ours | 44.05 | [41.81, 46.29] | 14.59 | 53.94 | 0.4588 | 100.00 | 90.99 | 86.35 |
+
+<sub>produced by: scripts/run_03_wsept_policy.py &middot; command    : python scripts/run_03_wsept_policy.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:36:11 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false}</sub>

@@ -1,0 +1,18 @@
+### Sensitivity of the c-mu rules to the follow-up delay weight T_follow, the one parameter not supplied by the paper
+
+| rule | T_follow_min | mean_wait_min | wait_L3_min | wait_L4_min | wait_followup_min | holding_cost | SL4_pct |
+|---|---|---|---|---|---|---|---|
+| WSEPT | 15 | 44.25 | 6.19 | 57.02 | 2.44 | 0.4077 | 86.00 |
+| GCMU | 15 | 44.35 | 8.69 | 56.31 | 3.82 | 0.4241 | 86.68 |
+| WSEPT | 30 | 44.32 | 3.77 | 57.94 | 3.48 | 0.3930 | 85.93 |
+| GCMU | 30 | 44.72 | 9.40 | 56.57 | 7.26 | 0.4317 | 87.25 |
+| WSEPT | 45 | 44.32 | 3.77 | 57.94 | 3.48 | 0.3930 | 85.93 |
+| GCMU | 45 | 45.33 | 11.77 | 56.59 | 12.19 | 0.4517 | 88.43 |
+| WSEPT | 60 | 44.32 | 3.77 | 57.94 | 3.48 | 0.3930 | 85.93 |
+| GCMU | 60 | 46.06 | 15.19 | 56.41 | 18.29 | 0.4791 | 90.13 |
+| WSEPT | 90 | 54.92 | 53.90 | 55.26 | 86.80 | 0.7938 | 100.00 |
+| GCMU | 90 | 47.78 | 23.50 | 55.90 | 32.38 | 0.5454 | 93.73 |
+| WSEPT | 120 | 54.92 | 53.90 | 55.26 | 86.80 | 0.7938 | 100.00 |
+| GCMU | 120 | 49.65 | 31.29 | 55.77 | 45.99 | 0.6095 | 97.15 |
+
+<sub>produced by: scripts/run_03_wsept_policy.py &middot; command    : python scripts/run_03_wsept_policy.py --reps 100 --seed 20250402 --workers 14 &middot; timestamp  : 2026-09-24 10:36:15 &middot; args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false}</sub>

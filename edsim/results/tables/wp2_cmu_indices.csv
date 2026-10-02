@@ -1,0 +1,9 @@
+# produced by: scripts/run_03_wsept_policy.py
+# command    : python scripts/run_03_wsept_policy.py --reps 100 --seed 20250402 --workers 14
+# timestamp  : 2026-09-24 10:36:02
+# args       : {"reps": 100, "seed": 20250402, "workers": 14, "quick": false, "no_figures": false}
+# caption    : Index values used by the c-mu and generalised c-mu rules
+"class","T_l_min","E_service_min","mu_l_per_min","c_l","index_c_mu","gcmu_coefficient"
+Level III initial,30,9.093,0.10998,0.033333,0.003666,2.444e-04
+Level IV initial,120,9.093,0.10998,0.008333,0.000916,1.527e-05
+Follow-up,60,12.841,0.07788,0.016667,0.001298,4.326e-05

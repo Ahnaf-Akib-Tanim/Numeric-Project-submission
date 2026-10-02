@@ -1,0 +1,381 @@
+{
+ "script": "run_03_wsept_policy",
+ "description": "WP2: implementation and evaluation of the c-mu rule (WSEPT) and the generalised c-mu rule as a fourth and fifth scheduling policy, added to the base paper's three heuristics.",
+ "command": "python scripts/run_03_wsept_policy.py --reps 100 --seed 20250402 --workers 14",
+ "args": {
+  "reps": 100,
+  "seed": 20250402,
+  "workers": 14,
+  "quick": false,
+  "no_figures": false
+ },
+ "timestamp": "2026-09-24 10:36:17",
+ "elapsed_seconds": 15.14,
+ "environment": {
+  "python": "3.11.4",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.2.6",
+  "scipy": "1.14.1",
+  "matplotlib": "3.9.2",
+  "pandas": "2.2.3"
+ },
+ "notes": {
+  "best_on_unweighted_wait": "WSEPT",
+  "best_on_holding_cost": "WSEPT",
+  "tfollow_spread": {
+   "WSEPT": 0.2412,
+   "GCMU": 0.1195
+  }
+ },
+ "outputs": [
+  {
+   "kind": "table",
+   "name": "wp2_cmu_indices",
+   "path": "results/tables/wp2_cmu_indices.csv",
+   "caption": "Index values used by the c-mu and generalised c-mu rules"
+  },
+  {
+   "kind": "table",
+   "name": "wp2_policy_comparison",
+   "path": "results/tables/wp2_policy_comparison.csv",
+   "caption": "Five-policy comparison: the paper's three heuristics plus the c-mu rule and its generalisation"
+  },
+  {
+   "kind": "table",
+   "name": "wp2_cmu_significance",
+   "path": "results/tables/wp2_cmu_significance.csv",
+   "caption": "Paired tests of the c-weighted holding cost, WSEPT against every other policy"
+  },
+  {
+   "kind": "table",
+   "name": "wp2_tfollow_sensitivity",
+   "path": "results/tables/wp2_tfollow_sensitivity.csv",
+   "caption": "Sensitivity of the c-mu rules to the follow-up delay weight T_follow, the one parameter not supplied by the paper"
+  },
+  {
+   "kind": "figure",
+   "name": "wp2_holding_cost_bars",
+   "path": "results/figures/wp2_holding_cost_bars.png",
+   "caption": "Holding cost by policy: the c-mu rule's own objective"
+  },
+  {
+   "kind": "figure",
+   "name": "wp2_mean_wait_bars",
+   "path": "results/figures/wp2_mean_wait_bars.png",
+   "caption": "Unweighted mean waiting time across all five policies"
+  },
+  {
+   "kind": "figure",
+   "name": "wp2_five_policy_boxplot",
+   "path": "results/figures/wp2_five_policy_boxplot.png",
+   "caption": "Waiting-time distributions, paper policies plus ours"
+  },
+  {
+   "kind": "figure",
+   "name": "wp2_tfollow_sensitivity",
+   "path": "results/figures/wp2_tfollow_sensitivity.png",
+   "caption": "Mean wait under WSEPT and Gc-mu as T_follow varies"
+  }
+ ],
+ "tables": {
+  "wp2_cmu_indices": {
+   "headers": [
+    "class",
+    "T_l_min",
+    "E_service_min",
+    "mu_l_per_min",
+    "c_l",
+    "index_c_mu",
+    "gcmu_coefficient"
+   ],
+   "rows": [
+    [
+     "Level III initial",
+     "30",
+     "9.093",
+     "0.10998",
+     "0.033333",
+     "0.003666",
+     "2.444e-04"
+    ],
+    [
+     "Level IV initial",
+     "120",
+     "9.093",
+     "0.10998",
+     "0.008333",
+     "0.000916",
+     "1.527e-05"
+    ],
+    [
+     "Follow-up",
+     "60",
+     "12.841",
+     "0.07788",
+     "0.016667",
+     "0.001298",
+     "4.326e-05"
+    ]
+   ]
+  },
+  "wp2_policy_comparison": {
+   "headers": [
+    "policy",
+    "source",
+    "mean_wait_min",
+    "ci95",
+    "wait_L3_min",
+    "wait_L4_min",
+    "holding_cost",
+    "SL3_pct",
+    "SL4_pct",
+    "physician_util_pct"
+   ],
+   "rows": [
+    [
+     "IFP",
+     "paper",
+     "52.43",
+     "[49.63, 55.22]",
+     "50.88",
+     "52.94",
+     "0.7550",
+     "100.00",
+     "100.00",
+     "86.36"
+    ],
+    [
+     "ALT",
+     "paper",
+     "42.39",
+     "[40.26, 44.51]",
+     "6.05",
+     "54.61",
+     "0.3913",
+     "99.96",
+     "87.37",
+     "86.34"
+    ],
+    [
+     "SBP",
+     "paper",
+     "44.08",
+     "[41.72, 46.44]",
+     "12.35",
+     "54.74",
+     "0.4450",
+     "99.99",
+     "89.40",
+     "86.34"
+    ],
+    [
+     "WSEPT",
+     "ours",
+     "42.32",
+     "[40.21, 44.43]",
+     "3.76",
+     "55.30",
+     "0.3763",
+     "100.00",
+     "86.87",
+     "86.34"
+    ],
+    [
+     "GCMU",
+     "ours",
+     "44.05",
+     "[41.81, 46.29]",
+     "14.59",
+     "53.94",
+     "0.4588",
+     "100.00",
+     "90.99",
+     "86.35"
+    ]
+   ]
+  },
+  "wp2_cmu_significance": {
+   "headers": [
+    "comparison",
+    "mean_diff",
+    "t_stat",
+    "p_value",
+    "significant_bonferroni",
+    "cohens_d",
+    "interpretation"
+   ],
+   "rows": [
+    [
+     "IFP vs WSEPT",
+     "+0.3786",
+     "31.666",
+     "1.333e-53",
+     "Yes",
+     "3.167",
+     "Huge effect"
+    ],
+    [
+     "ALT vs WSEPT",
+     "+0.0150",
+     "36.535",
+     "2.856e-59",
+     "Yes",
+     "3.654",
+     "Huge effect"
+    ],
+    [
+     "SBP vs WSEPT",
+     "+0.0686",
+     "14.148",
+     "1.636e-25",
+     "Yes",
+     "1.415",
+     "Very large effect"
+    ],
+    [
+     "WSEPT vs GCMU",
+     "-0.0824",
+     "-33.423",
+     "9.989e-56",
+     "Yes",
+     "-3.342",
+     "Huge effect"
+    ]
+   ]
+  },
+  "wp2_tfollow_sensitivity": {
+   "headers": [
+    "rule",
+    "T_follow_min",
+    "mean_wait_min",
+    "wait_L3_min",
+    "wait_L4_min",
+    "wait_followup_min",
+    "holding_cost",
+    "SL4_pct"
+   ],
+   "rows": [
+    [
+     "WSEPT",
+     "15",
+     "44.25",
+     "6.19",
+     "57.02",
+     "2.44",
+     "0.4077",
+     "86.00"
+    ],
+    [
+     "GCMU",
+     "15",
+     "44.35",
+     "8.69",
+     "56.31",
+     "3.82",
+     "0.4241",
+     "86.68"
+    ],
+    [
+     "WSEPT",
+     "30",
+     "44.32",
+     "3.77",
+     "57.94",
+     "3.48",
+     "0.3930",
+     "85.93"
+    ],
+    [
+     "GCMU",
+     "30",
+     "44.72",
+     "9.40",
+     "56.57",
+     "7.26",
+     "0.4317",
+     "87.25"
+    ],
+    [
+     "WSEPT",
+     "45",
+     "44.32",
+     "3.77",
+     "57.94",
+     "3.48",
+     "0.3930",
+     "85.93"
+    ],
+    [
+     "GCMU",
+     "45",
+     "45.33",
+     "11.77",
+     "56.59",
+     "12.19",
+     "0.4517",
+     "88.43"
+    ],
+    [
+     "WSEPT",
+     "60",
+     "44.32",
+     "3.77",
+     "57.94",
+     "3.48",
+     "0.3930",
+     "85.93"
+    ],
+    [
+     "GCMU",
+     "60",
+     "46.06",
+     "15.19",
+     "56.41",
+     "18.29",
+     "0.4791",
+     "90.13"
+    ],
+    [
+     "WSEPT",
+     "90",
+     "54.92",
+     "53.90",
+     "55.26",
+     "86.80",
+     "0.7938",
+     "100.00"
+    ],
+    [
+     "GCMU",
+     "90",
+     "47.78",
+     "23.50",
+     "55.90",
+     "32.38",
+     "0.5454",
+     "93.73"
+    ],
+    [
+     "WSEPT",
+     "120",
+     "54.92",
+     "53.90",
+     "55.26",
+     "86.80",
+     "0.7938",
+     "100.00"
+    ],
+    [
+     "GCMU",
+     "120",
+     "49.65",
+     "31.29",
+     "55.77",
+     "45.99",
+     "0.6095",
+     "97.15"
+    ]
+   ]
+  }
+ }
+}
